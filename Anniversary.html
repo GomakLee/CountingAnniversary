@@ -30,7 +30,7 @@
 <section class="special-day">
     <h3 class="title">발렌타인 데이</h3>
     <div>
-        <p id="anniversary" class="days-left">0일 남음</p>
+        <p id="valentain" class="days-left">0</p>
         <p class="date">2023.2.14</p>
     </div>
 </section>
@@ -38,19 +38,38 @@
 <section class="special-day">
     <h3 class="title">빼빼로 데이</h3>
     <div>
-        <p id="anniversary" class="days-left">0일 남음</p>
+        <p id="pepero" class="days-left">0</p>
         <p class="date">2022.11.11</p>
     </div>
 </section>
     <hr>
-
-
 <script 
 src="https://code.jquery.com/jquery-3.6.0.min.js" 
 integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
 crossorigin="anonymous"></script>   
+
 <script>
- </script>   
+/*
+0일째 계산 - 어떻게?
+now 현재를 gettime으로 숫자 반환 - 사귀기 시작한 날을 gettime으로 숫자반환 빼기 = 
+*/
+var now= new Date();
+var date= new Date("1989-11-25");
+
+var now_date=Math.floor((now.getTime()-date.getTime())/(1000*60*60*24))+1;
+
+$("#love").text(now_date+"일째")
+/*
+발렌타인 데이,빼빼로 데이 계산 - 어떻게?
+*/
+var valentain = new Date("2023-02-14");
+var valentain_now = Math.floor( (valentain.getTime() - now.getTime()) / (1000*60*60*24));
+var pepero = new Date("2022-11-11");
+var pepero_now = Math.floor( (pepero.getTime() - now.getTime()) / (1000*60*60*24));
+
+$("#valentain").text("D - " + valentain_now + "일");
+$("#pepero").text("D - " + pepero_now + "일");
+</script>   
 </body>
 </html>
 
