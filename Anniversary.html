@@ -49,19 +49,14 @@ integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
 crossorigin="anonymous"></script>   
 
 <script>
-/*
-0일째 계산 - 어떻게?
-now 현재를 gettime으로 숫자 반환 - 사귀기 시작한 날을 gettime으로 숫자반환 빼기 = 
-*/
+/*0일째 계산 - 어떻게?*/
 var now= new Date();
-var date= new Date("1989-11-25");
+var date= new Date(1989,11,25);
 
 var now_date=Math.floor((now.getTime()-date.getTime())/(1000*60*60*24))+1;
 
 $("#love").text(now_date+"일째")
-/*
-발렌타인 데이,빼빼로 데이 계산 - 어떻게?
-*/
+/*발렌타인 데이,빼빼로 데이 계산 - 어떻게?*/
 var valentain = new Date("2023-02-14");
 var valentain_now = Math.floor( (valentain.getTime() - now.getTime()) / (1000*60*60*24));
 var pepero = new Date("2022-11-11");
@@ -69,6 +64,19 @@ var pepero_now = Math.floor( (pepero.getTime() - now.getTime()) / (1000*60*60*24
 
 $("#valentain").text("D - " + valentain_now + "일");
 $("#pepero").text("D - " + pepero_now + "일");
+
+/*
+35주년 계산 - 어떻게?
+사귀기 시작한 날로부터 + 35주년 어치의 gettime - 현재 날짜
+var thirty_five = new Date(date.setFullYear(date.getFullYear + 35));
+document.write(thirty_five);
+
+*/
+var tempt = date.getTime() + 24 * 60 * 60 * 1000 * 30 * 12 * 35 - now.getTime();
+var thirty_five= new Date(tempt);
+thirty_five = Math.floor(tempt / (1000*60*60*24));
+$("#thirtyfive").text("D - "+ thirty_five + "일");
+$("#thirtyfive-date").text(thirty_five.getFullYear()+"."+(thirty_five.getMonth() +1) + "." + thirty_five.getDate())
 </script>   
 </body>
 </html>
