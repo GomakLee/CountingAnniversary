@@ -9,9 +9,9 @@
 </head> 
 <body class="container">
     <section class="photos">
-        <img id="Sanghwa" src = "Sanghwa/.png" alt="Sanghwa"> 
+        <img id="Sanghwa" src = "Sanghwa.png" alt="Sanghwa"> 
         <img id="heart" src = 'heart.png' alt="heart"> 
-        <img id="Aeja" src="Aeja/.png" alt="Aeja"> 
+        <img id="Aeja" src="Aeja.png" alt="Aeja"> 
     </section>
     <div class="container d-flex flex-column justify-content-center align-items-center mt-3">
         <h2>이상화 🤍 고애자</h2>
@@ -49,14 +49,14 @@ integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
 crossorigin="anonymous"></script>   
 
 <script>
-/*0일째 계산 - 어떻게?*/
+
 var now= new Date();
 var date= new Date(1989,11,25);
-
+//우리 몇 일째?
 var now_date=Math.floor((now.getTime()-date.getTime())/(1000*60*60*24))+1;
-
 $("#love").text(now_date+"일째")
-/*발렌타인 데이,빼빼로 데이 계산 - 어떻게?*/
+
+//발렌타인 데이,빼빼로 데이 계산 
 var valentain = new Date("2023-02-14");
 var valentain_now = Math.floor( (valentain.getTime() - now.getTime()) / (1000*60*60*24));
 var pepero = new Date("2022-11-11");
@@ -66,15 +66,11 @@ $("#valentain").text("D - " + valentain_now + "일");
 $("#pepero").text("D - " + pepero_now + "일");
 
 /*35주년 계산 - 어떻게?
-var tempt = new Date(date.getTime() + 24 * 60 * 60 * 1000 * 30 * 12 * 35 - now.getTime());
-var TF = Math.floor(tempt / (1000*60*60*24));
-$("#thirtyfive").text("D - "+ TF + "일");
-$("#thirtyfive-date").text(tempt.getFullYear()+"."+(tempt.getMonth() +1) + "." + tempt.getDate());
-*/
 var TF = new Date(date.setFullYear(date.getFullYear()+35));
 var timeDiff = Math.floor((TF.getTime() - now.getTime())/ (1000 * 60 * 60 * 24));
 $("#thirtyfive").text("D - "+ timeDiff + "일");
 $("#thirtyfive-date").text(TF.getFullYear()+"." + TF.getMonth() +"." + TF.getDate());
+*/
 
 </script>   
 </body>
