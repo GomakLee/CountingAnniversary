@@ -14,7 +14,7 @@
         <img id="Aeja" src="Aeja.png" alt="Aeja"> 
     </section>
     <div class="container d-flex flex-column justify-content-center align-items-center mt-3">
-        <h2>이상화 🤍 고애자</h2>
+        <h1>이상화 🤍 고애자</h1>
         <h3 id="love">0일째</h3>
         <h4 class="date">1989.11.25</h4>
     </div>
@@ -51,7 +51,7 @@ crossorigin="anonymous"></script>
 <script>
 
 var now= new Date();
-var date= new Date(1989,11,25);
+var date= new Date("1989-11-25");
 //우리 몇 일째?
 var now_date=Math.floor((now.getTime()-date.getTime())/(1000*60*60*24))+1;
 $("#love").text(now_date+"일째")
@@ -65,21 +65,22 @@ var pepero_now = Math.floor( (pepero.getTime() - now.getTime()) / (1000*60*60*24
 $("#valentain").text("D - " + valentain_now + "일");
 $("#pepero").text("D - " + pepero_now + "일");
 
-/*35주년 계산 - 어떻게?
-var TF = new Date(date.setFullYear((date.getFullYear()+35),10,25)); //컴퓨터에는 월이 0부터 시작하기 때문에 0~11 -> 1~12
+//35주년 계산 - 어떻게?
+var TF = new Date(date.setFullYear((date.getFullYear()+35))); //컴퓨터에는 월이 0부터 시작하기 때문에 0~11 -> 1~12
 var timeDiff = Math.floor((TF.getTime() - now.getTime())/ (1000 * 60 * 60 * 24) +1);
 $("#thirtyfive").text("D - "+ timeDiff + "일");
 $("#thirtyfive-date").text(TF.getFullYear()+"." + (TF.getMonth() +1) +"." + TF.getDate());
-*/
-var TF = new Date(date.getTime() + ((1000 * 60 * 60 * 24) * ((35 * 365) + 9 ) ) );
+
+/*
+var TF = new Date(date.getTime() + ( ( 1000 * 60 * 60 * 24 ) * ( ( 35 * 365 ) + 9 ) ) ); // 윤년 까지 포함
 var tfday = TF.getFullYear()+"." + (TF.getMonth()) +"." + TF.getDate();
 $("#thirtyfive-date").text(tfday);
-
 var timediff = TF.getTime() - now.getTime();
 var day3 = Math.floor(timediff / (1000 * 60 * 60 * 24) + 1);
-$('#thirtyfive').text(day3 + "일 남음")
+$('#thirtyfive').text(day3 + "일 남음");
 
-document.write(TF.getMonth())
+ var start = new Date("2022-11-25") 와 new Date(2022,11,25)로 입력하는건 큰 차이ㅇㅇ
+ 후자는 document.write로 출력했을 때 월이 +1로 되어서 모든 계산이 한달이 추가된것으로 이루어짐*/
 </script>   
 </body>
 </html>
