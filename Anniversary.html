@@ -9,9 +9,9 @@
 </head> 
 <body class="container">
     <section class="photos">
-        <img id="Sanghwa" src = "Sanghwa.png" alt="Sanghwa"> 
+        <img id="Sanghwa" src = "Sanghwa/.png" alt="Sanghwa"> 
         <img id="heart" src = 'heart.png' alt="heart"> 
-        <img id="Aeja" src="Aeja.png" alt="Aeja"> 
+        <img id="Aeja" src="Aeja/.png" alt="Aeja"> 
     </section>
     <div class="container d-flex flex-column justify-content-center align-items-center mt-3">
         <h2>이상화 🤍 고애자</h2>
@@ -58,19 +58,24 @@ $("#love").text(now_date+"일째")
 
 //발렌타인 데이,빼빼로 데이 계산 
 var valentain = new Date("2023-02-14");
-var valentain_now = Math.floor( (valentain.getTime() - now.getTime()) / (1000*60*60*24));
+var valentain_now = Math.floor( (valentain.getTime() - now.getTime()) / (1000*60*60*24) +1);
 var pepero = new Date("2022-11-11");
-var pepero_now = Math.floor( (pepero.getTime() - now.getTime()) / (1000*60*60*24));
+var pepero_now = Math.floor( (pepero.getTime() - now.getTime()) / (1000*60*60*24) +1);
 
 $("#valentain").text("D - " + valentain_now + "일");
 $("#pepero").text("D - " + pepero_now + "일");
 
-/*35주년 계산 - 어떻게?
-var TF = new Date(date.setFullYear(date.getFullYear()+35));
-var timeDiff = Math.floor((TF.getTime() - now.getTime())/ (1000 * 60 * 60 * 24));
+/*35주년 계산 - 어떻게?*/
+
+var TF = new Date(date.setFullYear((date.getFullYear()+35),10,25)); // 월이 +1개씩 추가가 되어서 나옴
+var timeDiff = Math.floor((TF.getTime() - now.getTime())/ (1000 * 60 * 60 * 24) +1);
 $("#thirtyfive").text("D - "+ timeDiff + "일");
-$("#thirtyfive-date").text(TF.getFullYear()+"." + TF.getMonth() +"." + TF.getDate());
-*/
+$("#thirtyfive-date").text(TF.getFullYear()+"." + (TF.getMonth() +1) +"." + TF.getDate());
+document.write(TF);
+document.write(TF.getFullYear());
+document.write(TF.getMonth());
+document.write(TF.getDate());
+
 
 </script>   
 </body>
