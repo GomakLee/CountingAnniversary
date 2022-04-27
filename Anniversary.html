@@ -9,9 +9,9 @@
 </head> 
 <body class="container">
     <section class="photos">
-        <img id="Sanghwa" src = "Sanghwa/.png" alt="Sanghwa"> 
+        <img id="Sanghwa" src = "Sanghwa.png" alt="Sanghwa"> 
         <img id="heart" src = 'heart.png' alt="heart"> 
-        <img id="Aeja" src="Aeja/.png" alt="Aeja"> 
+        <img id="Aeja" src="Aeja.png" alt="Aeja"> 
     </section>
     <div class="container d-flex flex-column justify-content-center align-items-center mt-3">
         <h2>이상화 🤍 고애자</h2>
@@ -65,19 +65,21 @@ var pepero_now = Math.floor( (pepero.getTime() - now.getTime()) / (1000*60*60*24
 $("#valentain").text("D - " + valentain_now + "일");
 $("#pepero").text("D - " + pepero_now + "일");
 
-/*35주년 계산 - 어떻게?*/
-
-var TF = new Date(date.setFullYear((date.getFullYear()+35),10,25)); // 월이 +1개씩 추가가 되어서 나옴
+/*35주년 계산 - 어떻게?
+var TF = new Date(date.setFullYear((date.getFullYear()+35),10,25)); //컴퓨터에는 월이 0부터 시작하기 때문에 0~11 -> 1~12
 var timeDiff = Math.floor((TF.getTime() - now.getTime())/ (1000 * 60 * 60 * 24) +1);
 $("#thirtyfive").text("D - "+ timeDiff + "일");
 $("#thirtyfive-date").text(TF.getFullYear()+"." + (TF.getMonth() +1) +"." + TF.getDate());
-document.write(TF);
-document.write(TF.getFullYear());
-document.write(TF.getMonth());
-document.write(TF.getDate());
-//왜 setFullYear을 통해 년만 추가로 했는데 왜 월이 하나씩 밀려서 나오는것인지? 난 11월로 했는데 -> 12월로 출력됨
-//이 때문에 12월로 얘가 기억이 되있어서 기념일 계산할 때도 + 30일이 더 추가가 되어서 나옴 - 오류
+*/
+var TF = new Date(date.getTime() + ((1000 * 60 * 60 * 24) * ((35 * 365) + 9 ) ) );
+var tfday = TF.getFullYear()+"." + (TF.getMonth()) +"." + TF.getDate();
+$("#thirtyfive-date").text(tfday);
 
+var timediff = TF.getTime() - now.getTime();
+var day3 = Math.floor(timediff / (1000 * 60 * 60 * 24) + 1);
+$('#thirtyfive').text(day3 + "일 남음")
+
+document.write(TF.getMonth())
 </script>   
 </body>
 </html>

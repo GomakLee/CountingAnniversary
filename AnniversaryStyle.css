@@ -1,6 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
 * {
     color:#333333;
-    font-family:sans-erif;
+    font-family: 'Jua', sans-serif;
 }
 p{
     margin-bottom:1px;
